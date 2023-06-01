@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO List</title>
+
+    <style>
+        /* <!-- <-<-<- For Body Color ->->-> --> */
+        body{
+            background-color: black;
+            cursor: wait;
+        }
+        /* <!-- <-<-<- For Box container ->->-> --> */
+        .container{
+            height: 400px;
+            width: 500px;
+            background-color: white;
+            position: relative;
+            top: 100px;
+            left: 30%;
+            border-radius: 20px;
+            box-shadow: 1px 1px 10px white;
+            cursor: grabbing;
+        }
+         /* <!-- <-<-<- For Input style  ->->-> --> */
+        input{
+            height: 60px;
+            width: 300px;
+            background-color: white;
+            outline: none;
+            font-size: 20px;
+            padding-left: 20px;
+            font-weight: bold;
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+         /* <!-- <-<-<- For Button Style ->->-> --> */
+        button{
+            height: 60px;
+            width: 100px;
+            color: white;
+            outline: none;
+            background-color: black;
+            border: 1px solid silver;
+            border-radius: 50px;
+            font-size: 16px;
+            margin: 0%;
+            cursor: pointer;
+            transition: 1s ease;
+        }
+         /* <!-- <-<-<- For Button Hover ->->-> --> */
+        button:hover{
+            background-color: rgb(80, 76, 76);
+        }
+         /* <!-- <-<-<- For ul Style ->->-> --> */
+        ul{
+            list-style: decimal-leading-zero;
+            font-size: 24px;
+            font-weight: 800;
+            margin-left: 30px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- <-<-<- For Input Box ->->-> -->
+      <input type="text" name="" id="taskinput" />
+
+      <!-- <-<-<- For Button ->->-> -->
+      <button onclick="addTask()">ADD</button>
+
+      <!-- <-<-<- For ADD List ->->-> -->
+      <ul id="taskList"></ul>
+    </div>
+    <script>
+      function addTask() {
+        var taskinput = document.getElementById("taskinput");
+        var taskList = document.getElementById("taskList");
+
+        var taskItem = document.createElement("li");
+        taskItem.appendChild(document.createTextNode(taskinput.value));
+        taskList.appendChild(taskItem);
+
+        taskinput.value = "";
+      }
+    </script>
+  </body>
+</html>
